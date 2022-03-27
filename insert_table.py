@@ -37,90 +37,90 @@ with sqlite3.connect("animal.db") as connection:
                         SELECT "index", animal_type, animal_id, name, age_upon_outcome, date_of_birth, outcome_month, outcome_year, breed, color1, color2, outcome_subtype, outcome_type
                         FROM animals                      
                     """
-    # cursor.execute(query_breed)
-    # cursor.execute(query_color1)
-    # cursor.execute(query_color2)
-    # cursor.execute(query_subtype)
-    # cursor.execute(query_condition)
-    # cursor.execute(query_myanimals)
+    cursor.execute(query_breed)
+    cursor.execute(query_color1)
+    cursor.execute(query_color2)
+    cursor.execute(query_subtype)
+    cursor.execute(query_condition)
+    cursor.execute(query_myanimals)
 
 
-# with sqlite3.connect("animal.db") as connection:
-#      connection.row_factory = sqlite3.Row
-#      query = connection.execute("""
-#              SELECT *
-#             FROM outcome""").fetchall()
-#      for q in query:
-#         value = dict(q)
-#         connection.execute(f"""
-#         UPDATE my_animals
-#         SET idoutcome = {value["id"]}
-#         WHERE outcome_type = '{value["outcome_type"]}'
-#         """)
-#      query1 = connection.execute("""
-#                  SELECT *
-#                  FROM color1""").fetchall()
-#      for q in query1:
-#          value = dict(q)
-#          connection.execute(f"""
-#              UPDATE my_animals
-#              SET idcolor1 = {value["id"]}
-#              WHERE color1 = '{value["color1"]}'
-#              """)
-#      query2 = connection.execute("""
-#                       SELECT *
-#                       FROM color2""").fetchall()
-#      for q in query2:
-#          value = dict(q)
-#          connection.execute(f"""
-#                   UPDATE my_animals
-#                   SET idcolor2 = {value["id"]}
-#                   WHERE color2 = '{value["color2"]}'
-#                   """)
-#      query3 = connection.execute("""
-#                            SELECT *
-#                            FROM breed""").fetchall()
-#      for q in query3:
-#          value = dict(q)
-#          connection.execute(f"""
-#                        UPDATE my_animals
-#                        SET idbreed = {value["id"]}
-#                        WHERE breed = '{value["breed"]}'
-#                        """)
-#      query4 = connection.execute("""
-#                                 SELECT *
-#                                 FROM subtype""").fetchall()
-#      for q in query4:
-#          value = dict(q)
-#          connection.execute(f"""
-#                             UPDATE my_animals
-#                             SET idsubtype = {value["id"]}
-#                             WHERE outcome_subtype = '{value["outcome_subtype"]}'
-#                             """)
+with sqlite3.connect("animal.db") as connection:
+     connection.row_factory = sqlite3.Row
+     query = connection.execute("""
+            SELECT *
+            FROM outcome""").fetchall()
+     for q in query:
+        value = dict(q)
+        connection.execute(f"""
+        UPDATE my_animals
+        SET idoutcome = {value["id"]}
+        WHERE outcome_type = '{value["outcome_type"]}'
+        """)
+     query1 = connection.execute("""
+        SELECT *
+        FROM color1""").fetchall()
+     for q in query1:
+         value = dict(q)
+         connection.execute(f"""
+             UPDATE my_animals
+             SET idcolor1 = {value["id"]}
+             WHERE color1 = '{value["color1"]}'
+             """)
+     query2 = connection.execute("""
+                      SELECT *
+                      FROM color2""").fetchall()
+     for q in query2:
+         value = dict(q)
+         connection.execute(f"""
+                  UPDATE my_animals
+                  SET idcolor2 = {value["id"]}
+                  WHERE color2 = '{value["color2"]}'
+                  """)
+     query3 = connection.execute("""
+                    SELECT *
+                    FROM breed""").fetchall()
+     for q in query3:
+         value = dict(q)
+         connection.execute(f"""
+                       UPDATE my_animals
+                       SET idbreed = {value["id"]}
+                       WHERE breed = '{value["breed"]}'
+                       """)
+     query4 = connection.execute("""
+                        SELECT *
+                        FROM subtype""").fetchall()
+     for q in query4:
+         value = dict(q)
+         connection.execute(f"""
+                        UPDATE my_animals
+                        SET idsubtype = {value["id"]}
+                        WHERE outcome_subtype = '{value["outcome_subtype"]}'
+                        """)
 
-    query_dell = """
+     query_dell = """
                     ALTER TABLE my_animals
                     DROP COLUMN breed                    
                     """
-    query_dell1 = """
+     query_dell1 = """
                     ALTER TABLE my_animals
                     DROP COLUMN color1                  
                         """
-    query_dell2 = """
+     query_dell2 = """
                     ALTER TABLE my_animals
                     DROP COLUMN color2 
                          """
-    query_dell3 = """
+     query_dell3 = """
                     ALTER TABLE my_animals
                     DROP COLUMN outcome_subtype 
                              """
-    query_dell4 = """
+     query_dell4 = """
                     ALTER TABLE my_animals
                     DROP COLUMN outcome_type 
                                  """
 
-    cursor.execute (query_dell)
-    cursor.execute(query_dell1)
-    cursor.execute(query_dell2)
-    cursor.execute(query_dell3)
-    cursor.execute(query_dell4)
+     cursor.execute(query_dell)
+     cursor.execute(query_dell1)
+     cursor.execute(query_dell2)
+     cursor.execute(query_dell3)
+     cursor.execute(query_dell4)
